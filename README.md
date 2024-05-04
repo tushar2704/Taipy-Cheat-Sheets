@@ -2,6 +2,8 @@
 
 Welcome to the Taipy Cheat Sheets repository! This is your go-to resource for quick reference and practical examples covering all the key features and capabilities of the Taipy framework. Whether you're new to Taipy or an experienced user, these cheat sheets will help you be more productive and unlock the full potential of Taipy for building powerful data-driven applications.
 
+![taipy me](https://github.com/tushar2704/Taipy-Cheat-Sheets/assets/66141195/913e0a87-7bc5-4515-be1a-106f5953733c)
+
 Developer et maintainer: [Tushar Aggarwal](https://www.linkedin.com/in/tusharaggarwalinseec/)
 ## Table of Contents
 
