@@ -15,6 +15,20 @@ import taipy.config as tpc
 import taipy.gui.data as tgd
 from taipy.gui import Markdown
 
+from taipy.gui import Gui, Markdown
+from src.gui.navigation import get_navigation
+from src.pages import (
+    getting_started,
+    taipy_core,
+    taipy_gui,
+    taipy_rest,
+    taipy_enterprise,
+    deployment,
+    best_practices,
+    integrations,
+)
+
+from src.search import search_page
 #######################################################################################################
 
 
@@ -82,6 +96,21 @@ from taipy.gui import Markdown
 #######################################################################################################
 
 
+pages = {
+    "/": getting_started.page,
+    "/getting-started": getting_started.page,
+    "/taipy-core": taipy_core.page,
+    "/taipy-gui": taipy_gui.page,
+    "/taipy-rest": taipy_rest.page,
+    "/taipy-enterprise": taipy_enterprise.page,
+    "/deployment": deployment.page,
+    "/best-practices": best_practices.page,
+    "/integrations": integrations.page,
+    "/search": search_page,
+}
+
+
+
 
 
 
@@ -90,3 +119,4 @@ from taipy.gui import Markdown
 #######################################################################################################
 #Application run
 #######################################################################################################
+Gui(pages=pages, nav=get_navigation()).run()
