@@ -3,20 +3,11 @@
 #######################################################################################################
 #Importing dependecies
 #######################################################################################################
-
-import os, sys, requests, logging, pathlib
-import taipy as tp
-from taipy import Config
-from taipy.gui import Gui, Icon, navigate
-import taipy.gui.builder as tgb
-import taipy.core as tc
-import taipy.gui_core as tgc
-import taipy.config as tpc
-import taipy.gui.data as tgd
-from taipy.gui import Markdown
-
+import os
 from taipy.gui import Gui, Markdown
-from src.gui.navigation import get_navigation
+from .gui.navigation import get_navigation
+from .gui.code_editor import get_code_editor
+from .gui.feedback_form import feedback_form
 from src.pages import (
     getting_started,
     taipy_core,
@@ -27,11 +18,23 @@ from src.pages import (
     best_practices,
     integrations,
 )
-
 from src.search import search_page
+from src.dark_mode import dark_mode_toggle
 #######################################################################################################
+#Pages
+#######################################################################################################
+def get_page_content(page):
+    return f"""
+<|layout|columns=1 1|
+<|
+{page}
+|>
 
-
+<|
+{get_code_editor(page)}
+|>
+|>
+"""
 
 
 
@@ -97,16 +100,17 @@ from src.search import search_page
 
 
 pages = {
-    "/": getting_started.page,
-    "/getting-started": getting_started.page,
-    "/taipy-core": taipy_core.page,
-    "/taipy-gui": taipy_gui.page,
-    "/taipy-rest": taipy_rest.page,
-    "/taipy-enterprise": taipy_enterprise.page,
-    "/deployment": deployment.page,
-    "/best-practices": best_practices.page,
-    "/integrations": integrations.page,
+    "/": get_page_content(getting_started.page),
+    "/getting-started": get_page_content(getting_started.page),
+    "/taipy-core": get_page_content(taipy_core.page),
+    "/taipy-gui": get_page_content(taipy_gui.page),
+    "/taipy-rest": get_page_content(taipy_rest.page),
+    "/taipy-enterprise": get_page_content(taipy_enterprise.page),
+    "/deployment": get_page_content(deployment.page),
+    "/best-practices": get_page_content(best_practices.page),
+    "/integrations": get_page_content(integrations.page),
     "/search": search_page,
+    "/feedback": feedback_form,
 }
 
 
@@ -119,4 +123,8 @@ pages = {
 #######################################################################################################
 #Application run
 #######################################################################################################
-Gui(pages=pages, nav=get_navigation()).run()
+Gui(
+    pages=pages,
+    nav=get_navigation(),
+    dark_mode=dark_mode_toggle,
+).run()
