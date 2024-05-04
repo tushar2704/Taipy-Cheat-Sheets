@@ -10,6 +10,10 @@ from src.gui.code_editor import get_code_editor
 from src.gui.feedback_form import feedback_form
 from src.gui.favorites import get_favorite_button
 from src.gui.rating import get_rating_buttons
+from src.gui.comments import get_comments_section
+from src.gui.social_sharing import get_social_sharing_buttons
+from src.gui.newsletter_form import newsletter_form
+from src.gui.chatbot import chatbot_component
 from src.pages import (
     getting_started,
     taipy_core,
@@ -20,6 +24,7 @@ from src.pages import (
     best_practices,
     integrations,
     user_examples,
+    related_resources,
 )
 from src.search import search_page
 from src.dark_mode import dark_mode_toggle
@@ -42,9 +47,16 @@ def get_page_content(page):
 {get_favorite_button(page)}
 {''.join(get_rating_buttons(page))}
 |>
+
+<|
+{get_comments_section(page)}
+|>
+
+<|
+{get_social_sharing_buttons(page)}
+|>
 |>
 """
-
 
 
 
@@ -119,21 +131,14 @@ pages = {
     "/best-practices": get_page_content(best_practices.page),
     "/integrations": get_page_content(integrations.page),
     "/user-examples": get_page_content(user_examples.page),
+    "/related-resources": get_page_content(related_resources.page),
     "/search": search_page,
     "/feedback": feedback_form,
     "/login": login_form,
+    "/newsletter": newsletter_form,
+    "/chatbot": chatbot_component,
 }
 
-
-
-
-
-
-
-
-#######################################################################################################
-#Application run
-#######################################################################################################
 def get_header(state):
     if state.is_authenticated:
         return f"""
@@ -147,6 +152,13 @@ def get_header(state):
     else:
         return ""
 
+
+
+
+
+#######################################################################################################
+#Application run
+#######################################################################################################
 Gui(
     pages=pages,
     nav=get_navigation(),

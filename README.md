@@ -62,6 +62,73 @@ Developer et maintainer: [Tushar Aggarwal](https://www.linkedin.com/in/tusharagg
 
 ## Getting Started
 
+### Current Structure
+```
+TaipyCheatsheets/
+├── src/
+│   ├── pages/
+│   │   ├── __init__.py
+│   │   ├── getting_started.py
+│   │   ├── taipy_core.py
+│   │   ├── taipy_gui.py
+│   │   ├── taipy_rest.py
+│   │   ├── taipy_enterprise.py
+│   │   ├── deployment.py
+│   │   ├── best_practices.py
+│   │   ├── integrations.py
+│   │   ├── user_examples.py
+│   │   └── related_resources.py
+│   ├── scenarios/
+│   │   └── __init__.py
+│   ├── gui/
+│   │   ├── __init__.py
+│   │   ├── layout.py
+│   │   ├── styling.py
+│   │   ├── navigation.py
+│   │   ├── code_editor.py
+│   │   ├── feedback_form.py
+│   │   ├── favorites.py
+│   │   ├── rating.py
+│   │   ├── comments.py
+│   │   ├── social_sharing.py
+│   │   ├── newsletter_form.py
+│   │   └── chatbot.py
+│   ├── config/
+│   │   └── config.toml
+│   ├── auth/
+│   │   ├── __init__.py
+│   │   ├── authentication.py
+│   │   └── user_management.py
+│   ├── __init__.py
+│   ├── main.py
+│   ├── search.py
+│   └── dark_mode.py
+├── tests/
+│   ├── __init__.py
+│   ├── test_getting_started.py
+│   ├── test_taipy_core.py
+│   ├── test_taipy_gui.py
+│   ├── test_taipy_rest.py
+│   ├── test_taipy_enterprise.py
+│   ├── test_deployment.py
+│   ├── test_best_practices.py
+│   ├── test_integrations.py
+│   ├── test_user_examples.py
+│   ├── test_related_resources.py
+│   ├── test_authentication.py
+│   ├── test_user_management.py
+│   ├── test_code_editor.py
+│   ├── test_feedback_form.py
+│   ├── test_favorites.py
+│   ├── test_rating.py
+│   ├── test_comments.py
+│   ├── test_social_sharing.py
+│   ├── test_newsletter_form.py
+│   └── test_chatbot.py
+├── requirements.txt
+├── README.md
+└── .gitignore
+```
 ### Installation
 
 To get started with Taipy, you'll need to install it using pip:
