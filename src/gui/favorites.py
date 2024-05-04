@@ -3,11 +3,17 @@
 #######################################################################################################
 #Importing dependecies
 #######################################################################################################
-from taipy.gui import Markdown, Gui, Dropdown
+from taipy.gui import Markdown, Icon, Button
 
-page = """
-# Getting Started
+def toggle_favorite(state, page):
+    if page in state.favorites:
+        state.favorites.remove(page)
+    else:
+        state.favorites.append(page)
 
-Welcome to the Taipy Cheatsheets! This guide will help you get up and running with Taipy quickly.
-
-<|Dropdown|label=Installation Code|>"""
+def get_favorite_button(page):
+    return Button(
+        label=Icon("star"),
+        on_action=toggle_favorite,
+        active=page in state.favorites,
+    )

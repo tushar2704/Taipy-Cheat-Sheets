@@ -3,30 +3,26 @@
 #######################################################################################################
 #Importing dependecies
 #######################################################################################################
-from taipy.gui import Markdown, Gui, Dropdown
+from taipy.gui import Markdown, Input, Button
 
-page = """
-# Best Practices
+def login(state, username, password):
+    # TODO: Implement login logic (e.g., check credentials against database)
+    state.user = username
+    state.is_authenticated = True
 
-Follow these best practices to write clean, maintainable, and efficient Taipy code.
+def logout(state):
+    state.user = None
+    state.is_authenticated = False
 
-<|Dropdown|label=Project Structure|>
-<|my_project/
-├── src/
-│ ├── scenarios/
-│ ├── pipelines/
-│ ├── tasks/
-│ ├── gui/
-│ └── config/
-├── tests/
-├── data/
-├── docs/
-├── requirements.txt
-└── README.md|>
+login_form = """
+# Login
 
-## Demo
+<|Input|label=Username|value={username}|>
+<|Input|label=Password|type=password|value={password}|>
 
-*TODO: Add a demo showcasing best practices in Taipy code organization*
+<|Button|label=Login|on_action=login|>
 """
 
-Gui(page=Markdown(page)).run()
+logout_button = """
+<|Button|label=Logout|on_action=logout|>
+"""

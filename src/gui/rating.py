@@ -3,11 +3,18 @@
 #######################################################################################################
 #Importing dependecies
 #######################################################################################################
-from taipy.gui import Markdown, Gui, Dropdown
+from taipy.gui import Markdown, Icon, Button
 
-page = """
-# Getting Started
+def rate_page(state, page, rating):
+    # TODO: Implement logic to store page ratings (e.g., in a database)
+    state.page_ratings[page] = rating
 
-Welcome to the Taipy Cheatsheets! This guide will help you get up and running with Taipy quickly.
-
-<|Dropdown|label=Installation Code|>"""
+def get_rating_buttons(page):
+    return [
+        Button(
+            label=Icon("star"),
+            on_action=rate_page,
+            active=state.page_ratings.get(page, 0) >= i,
+        )
+        for i in range(1, 6)
+    ]

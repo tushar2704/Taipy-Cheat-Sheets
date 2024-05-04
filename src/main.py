@@ -5,9 +5,11 @@
 #######################################################################################################
 import os
 from taipy.gui import Gui, Markdown
-from .gui.navigation import get_navigation
-from .gui.code_editor import get_code_editor
-from .gui.feedback_form import feedback_form
+from src.gui.navigation import get_navigation
+from src.gui.code_editor import get_code_editor
+from src.gui.feedback_form import feedback_form
+from src.gui.favorites import get_favorite_button
+from src.gui.rating import get_rating_buttons
 from src.pages import (
     getting_started,
     taipy_core,
@@ -17,9 +19,11 @@ from src.pages import (
     deployment,
     best_practices,
     integrations,
+    user_examples,
 )
 from src.search import search_page
 from src.dark_mode import dark_mode_toggle
+from src.auth.authentication import login_form, logout_button
 #######################################################################################################
 #Pages
 #######################################################################################################
@@ -32,6 +36,11 @@ def get_page_content(page):
 
 <|
 {get_code_editor(page)}
+|>
+
+<|
+{get_favorite_button(page)}
+{''.join(get_rating_buttons(page))}
 |>
 |>
 """
@@ -109,8 +118,10 @@ pages = {
     "/deployment": get_page_content(deployment.page),
     "/best-practices": get_page_content(best_practices.page),
     "/integrations": get_page_content(integrations.page),
+    "/user-examples": get_page_content(user_examples.page),
     "/search": search_page,
     "/feedback": feedback_form,
+    "/login": login_form,
 }
 
 
@@ -123,8 +134,22 @@ pages = {
 #######################################################################################################
 #Application run
 #######################################################################################################
+def get_header(state):
+    if state.is_authenticated:
+        return f"""
+        <|layout|columns=1 1|
+        <|
+        Welcome, {state.user}!
+        {logout_button}
+        |>
+        |>
+        """
+    else:
+        return ""
+
 Gui(
     pages=pages,
     nav=get_navigation(),
     dark_mode=dark_mode_toggle,
+    header=get_header,
 ).run()
