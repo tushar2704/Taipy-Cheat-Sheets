@@ -3,3 +3,11 @@
 #######################################################################################################
 #Importing dependecies
 #######################################################################################################
+from taipy.gui import Markdown, Gui, Dropdown
+
+page = """
+# Getting Started
+
+Welcome to the Taipy Cheatsheets! This guide will help you get up and running with Taipy quickly.
+
+<|Dropdown|label=Installation Code|>"""
