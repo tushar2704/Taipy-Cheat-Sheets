@@ -6,8 +6,27 @@
 from taipy.gui import Markdown, Gui, Dropdown
 
 page = """
-# Getting Started
+# Best Practices
 
-Welcome to the Taipy Cheatsheets! This guide will help you get up and running with Taipy quickly.
+Follow these best practices to write clean, maintainable, and efficient Taipy code.
 
-<|Dropdown|label=Installation Code|>"""
+<|Dropdown|label=Project Structure|>
+<|my_project/
+├── src/
+│ ├── scenarios/
+│ ├── pipelines/
+│ ├── tasks/
+│ ├── gui/
+│ └── config/
+├── tests/
+├── data/
+├── docs/
+├── requirements.txt
+└── README.md|>
+
+## Demo
+
+*TODO: Add a demo showcasing best practices in Taipy code organization*
+"""
+
+Gui(page=Markdown(page)).run()
