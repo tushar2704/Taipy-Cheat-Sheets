@@ -5,6 +5,8 @@
 #######################################################################################################
 import os
 from taipy.gui import Gui, Markdown
+from taipy.gui import Gui, navigate
+from src.gui.navigation import get_navigation
 from src.gui.navigation import get_navigation
 from src.gui.code_editor import get_code_editor
 from src.gui.feedback_form import feedback_form
@@ -32,6 +34,9 @@ from src.auth.authentication import login_form, logout_button
 #######################################################################################################
 #Pages
 #######################################################################################################
+def on_page_change(state, var_name, function_name, info):
+    page = info['args']
+    navigate(state, to=page)
 def get_page_content(page):
     return f"""
 <|layout|columns=1 1|
@@ -139,18 +144,18 @@ pages = {
     "/chatbot": chatbot_component,
 }
 
-def get_header(state):
-    if state.is_authenticated:
-        return f"""
-        <|layout|columns=1 1|
-        <|
-        Welcome, {state.user}!
-        {logout_button}
-        |>
-        |>
-        """
-    else:
-        return ""
+# def get_header(state):
+#     if state.is_authenticated:
+#         return f"""
+#         <|layout|columns=1 1|
+#         <|
+#         Welcome, {state.user}!
+#         {logout_button}
+#         |>
+#         |>
+#         """
+#     else:
+#         return ""
 
 
 
@@ -159,9 +164,11 @@ def get_header(state):
 #######################################################################################################
 #Application run
 #######################################################################################################
+
 Gui(
     pages=pages,
     nav=get_navigation(),
     dark_mode=dark_mode_toggle,
     header=get_header,
+    on_page_change=on_page_change,
 ).run()

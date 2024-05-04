@@ -3,19 +3,21 @@
 #######################################################################################################
 #Importing dependecies
 #######################################################################################################
-from taipy.gui import Markdown, Icon, Nav, NavItem
+from taipy.gui import Markdown
 
 def get_navigation():
-    return Nav(
-        [
-            NavItem("Getting Started", "/getting-started", Icon("home")),
-            NavItem("Taipy Core", "/taipy-core", Icon("code")),
-            NavItem("Taipy GUI", "/taipy-gui", Icon("desktop")),
-            NavItem("Taipy REST", "/taipy-rest", Icon("cloud")),
-            NavItem("Taipy Enterprise", "/taipy-enterprise", Icon("building")),
-            NavItem("Deployment", "/deployment", Icon("rocket")),
-            NavItem("Best Practices", "/best-practices", Icon("check-circle")),
-            NavItem("Integrations", "/integrations", Icon("plug")),
-        ],
-        active="/getting-started",
+    return Markdown(
+        """
+        <navbar>
+            <nav-item label="Home" value="/"></nav-item>
+            <nav-item label="Getting Started" value="/getting-started"></nav-item>
+            <nav-item label="Taipy Core" value="/taipy-core"></nav-item>
+            <nav-item label="Taipy GUI" value="/taipy-gui"></nav-item>
+            <nav-item label="Taipy REST" value="/taipy-rest"></nav-item>
+            <nav-item label="Taipy Enterprise" value="/taipy-enterprise"></nav-item>
+            <nav-item label="Deployment" value="/deployment"></nav-item>
+            <nav-item label="Best Practices" value="/best-practices"></nav-item>
+            <nav-item label="Integrations" value="/integrations"></nav-item>
+        </navbar>
+        """
     )
