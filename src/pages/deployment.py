@@ -6,8 +6,21 @@
 from taipy.gui import Markdown, Gui, Dropdown
 
 page = """
-# Getting Started
+# Deployment
 
-Welcome to the Taipy Cheatsheets! This guide will help you get up and running with Taipy quickly.
+Taipy applications can be deployed using various methods, such as Docker, Kubernetes, and serverless platforms.
 
-<|Dropdown|label=Installation Code|>"""
+<|Dropdown|label=Docker Deployment Code|>
+```dockerfile
+FROM python:3.9
+
+WORKDIR /app
+
+COPY requirements.txt .
+RUN pip install -r requirements.txt
+
+COPY . .
+
+CMD ["python", "main.py"]
+```
+"""
