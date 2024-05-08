@@ -5,13 +5,20 @@
 #######################################################################################################
 import taipy as tp
 from taipy import Gui
+# custom theme
+my_theme = {
+    "palette": {
+        "background": {"default": "#E7E8D1"},  
+        "text": {"primary": "#2A2F33"}, 
+        "primary": {"main": "#2A2F33"},  
+        "secondary": {"main": "#2A2F33"},  
+        "link": {"main": "#2A2F33"},  #       
+    }
+}
 page = """
-# My Taipy App
+# [Taipy Cheat Sheets](https://github.com/tushar2704/Taipy-Cheat-Sheets)
 
-This is my Taipy application.
-
-[Taipy Cheat Sheets](https://github.com/tushar2704/Taipy-Cheat-Sheets)
 by [Tushar Aggarwal](https://www.linkedin.com/in/tusharaggarwalinseec/)
 """
-tp.Core().run()
-Gui(page=page).run(debug=True,use_reloader=True) 
+
+Gui(page=page).run(debug=True,use_reloader=True, theme=my_theme)  
