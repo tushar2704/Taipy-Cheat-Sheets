@@ -9,6 +9,28 @@ import numpy as np
 from taipy.gui import Gui
 import plotly.graph_objects as go
 import folium
+# custom theme
+my_theme = {
+    "palette": {
+        "background": {"default": "#E7E8D1"},  
+        "text": {"primary": "#112A46"}, 
+        "primary": {"main": "#112A46"},  
+        "secondary": {"main": "#112A463"},  
+        "link": {"main": "#112A46"},
+        "info": {"main": "#112A46"},
+        "success": {"main": "#112A46"},
+        "error": {"main": "#112A46"},
+        "warning": {"main": "#112A46"},
+    },
+    "taipyNavbar": {
+        "mainText": "#112A46", 
+        "mainBackground": "#E7E8D1", 
+    },
+    "taipyMenu": {
+        "mainText": "#112A46", 
+        "mainBackground": "#E7E8D1", 
+    },
+}
 
 # Create sample data
 data1 = pd.DataFrame({'x': [1, 2, 3], 'y': [4, 5, 6]})
@@ -85,10 +107,10 @@ page = """
 <|{data2}|chart|y=value|x=category|type=funnel|>
 
 ### Gauge Chart
-<|{data2}|chart|value=value|type=indicator|mode=gauge|gauge={{'axis': {'range': [0, 50]}}}|>
+<|{data2}|chart|value=25|type=indicator|mode=gauge|gauge={{'axis': {'range': [0, 50]}}}|>
 
 
 """
 
 # Run the Taipy application
-Gui(page).run()
+Gui(page).run(debug=True,use_reloader=True, theme=my_theme)
