@@ -9,6 +9,7 @@ import pandas as pd
 import datetime as dt
 #Data nodes
 
+#Meeting Schedule Application
 # meeting_data: Contains the details of the meetings.
 # selected_date: The date for which the user wants to schedule or reschedule a meeting.
 # meeting_outcome: Stores the outcome after processing the meeting data for the selected date.
