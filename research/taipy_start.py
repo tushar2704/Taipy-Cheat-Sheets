@@ -1,7 +1,7 @@
 #© 2024 Tushar Aggarwal. All rights reserved.(https://tushar-aggarwal.com)
 ##Taipy Cheat Sheets [https://github.com/tushar2704/Taipy-Cheat-Sheets] (https://github.com/tushar2704/Taipy-Cheat-Sheets)
 #######################################################################################################
-#Importing dependecies
+## Start with Taipy Application Demo by Tushar Aggarwal
 #######################################################################################################
 import taipy as tp
 from taipy import Gui
