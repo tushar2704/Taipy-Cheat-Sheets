@@ -3,11 +3,30 @@
 #######################################################################################################
 #Importing dependecies
 #######################################################################################################
-from taipy.gui import Markdown, Gui, Dropdown
+from taipy import Gui
+from taipy.gui import Markdown
+getting_started_md = """
+# [Taipy Cheat Sheets](https://github.com/tushar2704/Taipy-Cheat-Sheets)
 
-page = """
-# Getting Started
+by [Tushar Aggarwal](https://www.linkedin.com/in/tusharaggarwalinseec/)
 
-Welcome to the Taipy Cheatsheets! This guide will help you get up and running with Taipy quickly.
+Welcome! This guide will help you get up and running with Taipy quickly.
 
-<|Dropdown|label=Installation Code|>"""
+
+"""
+
+
+
+# custom theme
+my_theme = {
+    "palette": {
+        "background": {"default": "#E7E8D1"},  
+        "text": {"primary": "#2A2F33"}, 
+        "primary": {"main": "#2A2F33"},  
+        "secondary": {"main": "#2A2F33"},  
+        "link": {"main": "#2A2F33"},  #       
+    }
+}
+
+
+Gui(page=getting_started_md).run(debug=True,use_reloader=True, theme=my_theme)  
