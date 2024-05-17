@@ -129,11 +129,11 @@ from taipy.gui import Markdown
 # main.py
 from taipy import Gui
 from taipy.gui import navigate
-from src.pages.charts import *
-from src.pages.datatables import *
-from src.pages.forms import *
-from src.pages.navigation import *
-from src.pages.themes import *
+from src.pages.charts import create_charts_page
+from src.pages.datatables import create_datatables_page
+from src.pages.forms import create_forms_page
+from src.pages.navigation import create_navigation_page
+from src.pages.themes import create_themes_page
 
 # Custom theme
 my_theme = {
