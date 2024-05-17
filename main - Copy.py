@@ -15,6 +15,8 @@ import taipy.config as tpc
 import taipy.gui.data as tgd
 from taipy.gui import Markdown
 
+
+from src.pages.getting_started import getting_started_md
 #######################################################################################################
 
 # custom theme
@@ -30,93 +32,72 @@ my_theme = {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-countries = [
-    {"name": "United States", "population": 331002651, "area": 9833520},
-    {"name": "China", "population": 1439323776, "area": 9596960},
-    {"name": "India", "population": 1380004385, "area": 3287590},
-    {"name": "Russia", "population": 145934462, "area": 17098242},
-    {"name": "Brazil", "population": 212559417, "area": 8515767},
-]
-
-# Root page with navbar and menu
-root_md = """
+root_md = Markdown("""
+# Welcome to Taipy Cheat Sheets
 <|navbar|>
-# [Taipy Cheat Sheets](https://github.com/tushar2704/Taipy-Cheat-Sheets)
+This is the home page of the Taipy Cheat Sheets application. Use the navigation to explore different features and guides.
 
-### by [Tushar Aggarwal](https://www.linkedin.com/in/tusharaggarwalinseec/)
+## Available Pages
 
-<|menu|label=Select Country|lov={[c['name'] for c in countries]}|on_action=on_menu|>
+- [Getting Started](#/getting_started)
+- [Taipy Core](#/taipy_core)
+- [Taipy GUI](#/taipy_gui)
+- [Taipy REST](#/taipy_rest)
+- [Taipy Enterprise](#/taipy_enterprise)
+- [Deployment](#/deployment)
+- [Best Practices](#/best_practices)
+- [Integrations](#/integrations)
+- [User Examples](#/user_examples)
+- [Related Resources](#/related_resources)
+""")
 
-# Country Stats
-Welcome to the Country Stats application! Use the menu on the left to select a country and view its statistics.
-"""
 
-# Page to display country details
-def create_country_page(country):
-    return f"""
-## {country['name']}
 
-Population: {country['population']:,}
-Area: {country['area']:,} sq km
-"""
 
-# Callback for menu selection
-def on_menu(state, action, info):
-    country_name = info["args"][0]
-    country = next(c for c in countries if c['name'] == country_name)
-    page_name = country_name.replace(" ", "_")  # Replace spaces with underscores
-    navigate(state, to=page_name)
 
-# Create the pages dictionary
-pages = {"/": root_md}
-for country in countries:
-    page_name = country["name"].replace(" ", "_")
-    pages[page_name] = create_country_page(country)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+pages = {"/": root_md,
+    "Getting Started": getting_started_md}
+
 
 # Run the application
 Gui(pages=pages).run(debug=True,use_reloader=True)
