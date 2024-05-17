@@ -74,4 +74,4 @@ for country in countries:
     pages[page_name] = create_country_page(country)
 
 # Run the application
-Gui(pages=pages).run(debug=True,use_reloader=True, theme=my_theme)
+Gui(pages=pages).run(debug=True,use_reloader=True)
