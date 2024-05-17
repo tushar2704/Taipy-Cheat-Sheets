@@ -3,7 +3,7 @@
 #######################################################################################################
 #Importing dependecies
 #######################################################################################################
-from taipy.gui import Markdown, Gui, Dropdown
+from taipy.gui import Markdown, Gui
 
 def create_navigation_page():
     return """
