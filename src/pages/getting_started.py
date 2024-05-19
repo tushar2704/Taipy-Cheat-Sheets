@@ -5,17 +5,17 @@
 #######################################################################################################
 from taipy import Gui
 from taipy.gui import Markdown
-getting_started_md = """
-# [Taipy Cheat Sheets](https://github.com/tushar2704/Taipy-Cheat-Sheets)
+# getting_started_md = """
+# # [Taipy Cheat Sheets](https://github.com/tushar2704/Taipy-Cheat-Sheets)
 
-by [Tushar Aggarwal](https://www.linkedin.com/in/tusharaggarwalinseec/)
+# by [Tushar Aggarwal](https://www.linkedin.com/in/tusharaggarwalinseec/)
 
-Welcome! This guide will help you get up and running with Taipy quickly.
-
-
-"""
+# Welcome! This guide will help you get up and running with Taipy quickly.
 
 
+# """
+
+root_md = Markdown("src/pages/getting_started.md")
 
 # custom theme
 my_theme = {
@@ -29,4 +29,4 @@ my_theme = {
 }
 
 
-Gui(page=getting_started_md).run(debug=True,use_reloader=True, theme=my_theme)  
+Gui(page=root_md).run(debug=True,use_reloader=True, theme=my_theme)  
