@@ -22,7 +22,7 @@ from src.pages.datatables import create_datatables_page
 from src.pages.forms import create_forms_page
 from src.pages.navigation import create_navigation_page
 from src.pages.themes import create_themes_page
-
+from src.pages.root import root_md
 # Custom theme
 my_theme = {
     "palette": {
@@ -55,18 +55,18 @@ features = [
     {"name": "Themes", "page": create_themes_page()},
 ]
 
-# Root page with navbar and menu
-root_md = """
-<|navbar|>
-# [Taipy Cheat Sheets](https://github.com/tushar2704/Taipy-Cheat-Sheets)
+# # Root page with navbar and menu
+# root_md = """
+# <|navbar|>
+# # [Taipy Cheat Sheets](https://github.com/tushar2704/Taipy-Cheat-Sheets)
 
-### by [Tushar Aggarwal](https://www.linkedin.com/in/tusharaggarwalinseec/)
+# ### by [Tushar Aggarwal](https://www.linkedin.com/in/tusharaggarwalinseec/)
 
-<|menu|label=Features|lov={[c['name'] for c in features]}|on_action=on_menu|>
+# <|menu|label=Features|lov={[c['name'] for c in features]}|on_action=on_menu|>
 
-# Taipy Features
-Welcome to the Taipy Cheat Sheets application! Use the menu on the left to select a feature and view its details.
-"""
+# # Taipy Features
+# Welcome to the Taipy Cheat Sheets application! Use the menu on the left to select a feature and view its details.
+# """
 
 # Callback for menu selection
 def on_menu(state, action, info):
@@ -77,9 +77,9 @@ def on_menu(state, action, info):
 
 # Create the pages dictionary
 pages = {"/": root_md}
-for feature in features:
-    page_name = feature["name"].replace(" ", "_")
-    pages[page_name] = feature["page"]
+# for feature in features:
+#     page_name = feature["name"].replace(" ", "_")
+#     pages[page_name] = feature["page"]
 
 # Run the application
 Gui(pages=pages).run(debug=True, use_reloader=True)

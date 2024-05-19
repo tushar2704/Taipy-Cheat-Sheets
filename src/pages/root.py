@@ -16,5 +16,5 @@ my_theme = {
     }
 }
 
-
-Gui(page=root_md).run(debug=True,use_reloader=True, theme=my_theme)  
+#individual_page test
+# Gui(page=root_md).run(debug=True,use_reloader=True, theme=my_theme)  
