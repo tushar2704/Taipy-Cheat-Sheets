@@ -1,9 +1,6 @@
 
-# [Taipy Cheat Sheets](https://github.com/tushar2704/Taipy-Cheat-Sheets)
+# Test [Taipy Cheat Sheets](https://github.com/tushar2704/Taipy-Cheat-Sheets)
 
-by [Tushar Aggarwal](https://www.linkedin.com/in/tusharaggarwalinseec/)
+### by [Tushar Aggarwal](https://www.linkedin.com/in/tusharaggarwalinseec/)
 
-Welcome! This guide will help you get up and running with Taipy quickly.
-<|toggle|theme|>
-
-<|navbar|>
+## Welcome! This guide will help you get up and running with Taipy quickly.
